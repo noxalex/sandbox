@@ -5,7 +5,7 @@ const Movies = () => {
   return (
     <React.Fragment>
       <pre>
-        <code>{data}</code>
+        <code>{data.shows[0].title}</code>
       </pre>
     </React.Fragment>
   );

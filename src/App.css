@@ -10,12 +10,24 @@ header {
   margin: 50px auto;
   width: fit-content;
 }
+header span {
+  color: tomato;
+}
+form header {
+  font-size: 16px;
+}
 form {
   width: 300px;
-  margin: 0 auto;
+  margin: 50px auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 2px;
+}
+form label {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
 }
 input {
   width: 100%;
@@ -26,7 +38,8 @@ input {
   border-radius: 2px;
   box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.1);
 }
-a.search {
+a.search,
+input[type="submit"] {
   display: block;
   width: 50%;
   margin: 0 auto;
@@ -42,6 +55,7 @@ a.search {
   font-weight: 500;
   font-size: 16px;
 }
-a.search:active {
+a.search:active,
+input[type="submit"]:active {
   background: linear-gradient(#f1f1f1, azure);
 }
