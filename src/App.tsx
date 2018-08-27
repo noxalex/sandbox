@@ -21,7 +21,8 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <header>
-            Search for a movie <span> {this.state.userName}</span>{" "}
+            Search for a movie
+            {this.state.userName ? <span> {this.state.userName}</span> : null}
           </header>
           <Switch>
             <Route
