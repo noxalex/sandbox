@@ -4,7 +4,7 @@ import { RouteComponentProps } from '../../node_modules/@types/react-router';
 
 interface Props {}
 
-class Breadcrumb extends React.Component<RouteComponentProps<Props>, any> {
+class Breadcrumbs extends React.Component<RouteComponentProps<Props>, any> {
   history: string[] = [];
 
   render() {
@@ -12,8 +12,12 @@ class Breadcrumb extends React.Component<RouteComponentProps<Props>, any> {
     this.history.push(location.pathname);
     console.log(this.history);
 
-    return <li className="breadcrumbs">{location.pathname}</li>;
+    return (
+      <ul className="breadcrumbs">
+        <li className="breadcrumb-item">{location.pathname}</li>
+      </ul>
+    );
   }
 }
 
-export default withRouter(Breadcrumb);
+export default withRouter(Breadcrumbs);

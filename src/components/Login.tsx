@@ -1,29 +1,35 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   RouteComponentProps,
   StaticContext
-} from "../../node_modules/@types/react-router";
+} from '../../node_modules/@types/react-router';
+import { LoginContext } from '../App';
 
-interface Props extends RouteComponentProps<any, StaticContext, any> {
-  userName: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+interface Props extends RouteComponentProps<any, StaticContext, any> {}
 
 const Login = (props: Props) => {
   const onSubmit = () => {
-    props.history.push("/search");
+    props.history.push('/search');
   };
 
   return (
     <form onSubmit={onSubmit}>
       <header> Please, enter your name first </header>
       <label>Name</label>
-      <input
-        type="text"
-        placeholder="your name goes here"
-        value={props.userName}
-        onChange={props.onChange}
-      />
+      <LoginContext.Consumer>
+        {ctx => (
+          <input
+            type="text"
+            placeholder="your name goes here"
+            value={ctx ? ctx.userName : ''}
+            onChange={e => {
+              if (ctx) {
+                ctx.handleNameChange(e);
+              }
+            }}
+          />
+        )}
+      </LoginContext.Consumer>
       <input type="submit" value="enter" />
     </form>
   );
