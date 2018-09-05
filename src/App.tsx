@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Login from './components/Login';
 import Search from './components/Search';
 import Movies from './components/Movies';
-import Breadcrumbs from './components/Breadcrumbs';
+// import Breadcrumbs from './components/Breadcrumbs';
 import './App.css';
 
 interface LoginContextValue {
@@ -28,7 +28,12 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          <Breadcrumbs />
+          {/* <Breadcrumbs /> */}
+          <nav>
+            <Link to="/">Main</Link>
+            <Link to="/search">Search</Link>
+            <Link to="/movies">Movies</Link>
+          </nav>
 
           <header>
             Search for a movie

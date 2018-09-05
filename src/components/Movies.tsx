@@ -1,13 +1,14 @@
-import * as React from "react";
-import data from "../data";
+import * as React from 'react';
+import MovieCard from './MovieCard';
+import data from '../data';
 
 const Movies = () => {
   return (
-    <React.Fragment>
-      <pre>
-        <code>{data.shows[0].title}</code>
-      </pre>
-    </React.Fragment>
+    <div className="movies">
+      {data.shows.map(show => (
+        <MovieCard key={show.imdbID} {...show} />
+      ))}
+    </div>
   );
 };
 

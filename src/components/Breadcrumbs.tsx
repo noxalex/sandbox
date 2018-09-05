@@ -1,20 +1,28 @@
 import * as React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { RouteComponentProps } from '../../node_modules/@types/react-router';
 
-interface Props {}
+interface Props extends RouteComponentProps<any> {}
 
-class Breadcrumbs extends React.Component<RouteComponentProps<Props>, any> {
+class Breadcrumbs extends React.Component<Props> {
   history: string[] = [];
 
+  componentWillReceiveProps(prevProps: Props) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      this.history.push(location.pathname);
+    }
+  }
+
   render() {
-    const { location } = this.props;
-    this.history.push(location.pathname);
-    console.log(this.history);
+    console.log('history array: ', this.history);
 
     return (
       <ul className="breadcrumbs">
-        <li className="breadcrumb-item">{location.pathname}</li>
+        {this.history.map(path => (
+          <li className="breadcrumb-item" key={path}>
+            <Link to={path}>{path}</Link>
+          </li>
+        ))}
       </ul>
     );
   }

@@ -2,7 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 header {
   margin: 50px 0 0 50px;
@@ -39,7 +39,7 @@ input {
   box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.1);
 }
 a.search,
-input[type="submit"] {
+input[type='submit'] {
   display: block;
   width: 50%;
   margin: 0 auto;
@@ -56,6 +56,24 @@ input[type="submit"] {
   font-size: 16px;
 }
 a.search:active,
-input[type="submit"]:active {
+input[type='submit']:active {
   background: linear-gradient(#f1f1f1, azure);
+}
+
+.breadcrumbs {
+  list-style-type: none;
+}
+.breadcrumb-item {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+/* Movies card */
+
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
 }
