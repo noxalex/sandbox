@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="НСИ_Формы_сбора" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Формы-сбора_виджет" transform="translate(-1138.000000, -463.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="Group-4" transform="translate(1070.000000, 387.000000)">
+                <g id="Group-2">
+                    <g id="icons8-data_arrived" transform="translate(68.000000, 76.000000)">
+                        <path d="M10.6666667,0 L7.33333333,0 C7.33333333,0.734375333 6.73437533,1.33333333 6,1.33333333 C5.26562533,1.33333333 4.66666667,0.734375333 4.66666667,0 L1.33333333,0 C0.598958667,0 0,0.598958667 0,1.33333333 L0,10.6666667 C0,11.401042 0.598958667,12 1.33333333,12 L10.6666667,12 C11.401042,12 12,11.401042 12,10.6666667 L12,1.33333333 C12,0.598958667 11.401042,0 10.6666667,0 Z M5.20052067,9.20052067 L2.73437533,6.73437533 L3.66666667,5.79947933 L5.13281267,7.26562533 L9,3.20052067 L10,4.20052067 L5.20052067,9.20052067 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

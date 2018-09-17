@@ -15,7 +15,7 @@ class Movies extends React.Component {
   render() {
     const filtered = data.shows.filter(show =>
       `${show.title} ${show.description}`
-        .toLocaleUpperCase()
+        .toUpperCase()
         .indexOf(this.state.searchString.toUpperCase())
     );
 
