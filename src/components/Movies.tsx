@@ -9,22 +9,29 @@ const Input = styled.input`
 
 class Movies extends React.Component {
   state = {
-    searchString: 'black'
+    searchString: ''
+  };
+
+  handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ searchString: e.target.value });
   };
 
   render() {
-    const filtered = data.shows.filter(show =>
-      `${show.title} ${show.description}`
-        .toUpperCase()
-        .indexOf(this.state.searchString.toUpperCase())
+    const filtered = data.shows.filter(
+      show =>
+        !!~`${show.title} ${show.description}`
+          .toUpperCase()
+          .indexOf(this.state.searchString.toUpperCase())
     );
-
-    console.log(filtered);
 
     return (
       <div className="movies">
-        <Input type="text" placeholder="search for a movie you like" />
-        {data.shows.map(show => (
+        <Input
+          type="text"
+          placeholder="search for a movie you like"
+          onChange={this.handleSearchChange}
+        />
+        {filtered.map(show => (
           <MovieCard key={show.imdbID} {...show} />
         ))}
       </div>
