@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Login from './components/Login';
 import Search from './components/Search';
 import Movies from './components/Movies';
+import Details from './components/Details';
+import preload from './data';
+
 // import Breadcrumbs from './components/Breadcrumbs';
 import './App.css';
 
@@ -59,7 +62,18 @@ class App extends React.Component {
               )}
             />
             <Route exact path="/movies" component={Movies} />
-            <Route exact path="/search" component={Search} />;
+            <Route exact path="/search" component={Search} />
+            <Route
+              exact
+              path="/details/:id"
+              render={props => (
+                <Details
+                  movie={preload.shows.find(
+                    movie => props.match.params.id === movie.imdbID
+                  )}
+                />
+              )}
+            />
             <Route component={FoF} />
           </Switch>
         </div>

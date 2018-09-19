@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const StyledMovieCard = styled.div`
   width: 200px;
@@ -26,7 +27,7 @@ class MovieCard extends React.Component<Props> {
   render() {
     return (
       <StyledMovieCard>
-        <>
+        <Link to={`/details/${this.props.imdbID}`}>
           <img
             alt={`${this.props.title} Movie Poster`}
             src={`img/posters/${this.props.poster}`}
@@ -36,7 +37,7 @@ class MovieCard extends React.Component<Props> {
             <h3>{this.props.year}</h3>
             <p>{this.props.description}</p>
           </div>
-        </>
+        </Link>
       </StyledMovieCard>
     );
   }
