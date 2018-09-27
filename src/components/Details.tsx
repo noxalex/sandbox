@@ -1,5 +1,8 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+// import { Movie } from './types';
 
 const StyledDetails = styled.div`
   width: 500px;
@@ -35,6 +38,9 @@ class Details extends React.Component<Props> {
           <h3>{this.props.movie.year}</h3>
           <p>{this.props.movie.description}</p>
         </MovieDescription>
+        <Link to="/movies">
+          <h3 style={{ textAlign: 'center' }}>back</h3>
+        </Link>
       </StyledDetails>
     );
   }

@@ -24,7 +24,7 @@ const Login = (props: Props) => {
             placeholder="your name goes here"
             value={ctx ? ctx.userName : ''}
             onChange={e => {
-              if (ctx) {
+              if (ctx && ctx.handleNameChange) {
                 ctx.handleNameChange(e);
               }
             }}
