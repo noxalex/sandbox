@@ -9,6 +9,7 @@ header {
   font-size: 30px;
   margin: 50px auto;
   width: fit-content;
+  text-align: center;
 }
 header span {
   color: tomato;
@@ -76,4 +77,16 @@ input[type='submit']:active {
   justify-content: space-between;
   width: 90%;
   margin: 0 auto;
+}
+
+nav {
+  border-bottom: 1px solid #ccc;
+  height: 20px;
+}
+nav a {
+  text-decoration: none;
+  padding: 0 10px;
+}
+nav img {
+  float: right;
 }

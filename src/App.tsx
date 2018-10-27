@@ -7,7 +7,7 @@ import Movies from './components/Movies';
 import Details from './components/Details';
 import Header from './components/Header';
 import preload from './data';
-// import Spinner from './Spinner';
+import Spinner from './components/Spinner';
 
 // import Breadcrumbs from './components/Breadcrumbs';
 import './App.css';
@@ -24,7 +24,7 @@ const FoF = () => <h1 style={{ textAlign: 'center' }}>404</h1>;
 class App extends React.Component {
   state = {
     userName: '',
-    apiData: ''
+    apiData: { details: '' }
   };
 
   handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,28 +34,36 @@ class App extends React.Component {
   componentDidMount() {
     axios
       .get('https://api.spacexdata.com/v2/launches/latest')
-      .then(response => this.setState({ apiData: response }));
-
-    console.log(this.state.apiData);
+      .then(response => this.setState({ apiData: response.data }));
   }
 
   render() {
+    let headerComponent;
+    if (this.state.apiData.details !== '') {
+      headerComponent = <Header rocketLaunch={this.state.apiData} />;
+    } else {
+      headerComponent = <Spinner />;
+    }
+
     return (
       <Router>
         <div className="App">
           {/* <Breadcrumbs /> */}
-          <nav>
-            <Link to="/">Main</Link>
-            <Link to="/search">Search</Link>
-            <Link to="/movies">Movies</Link>
-          </nav>
 
           <LoginContext.Provider
             value={{
               userName: this.state.userName
             }}
           >
-            <Header />
+            <nav>
+              <Link to="/">Main</Link>
+              <Link to="/search">Search</Link>
+              <Link to="/movies">Movies</Link>
+            </nav>
+
+            {headerComponent}
+
+            {console.log('text', this.state.apiData)}
           </LoginContext.Provider>
 
           <Switch>
