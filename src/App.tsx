@@ -1,6 +1,8 @@
 import * as React from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 import Login from './components/Login';
 import Search from './components/Search';
 import Movies from './components/Movies';
@@ -46,66 +48,68 @@ class App extends React.Component {
     }
 
     return (
-      <Router>
-        <div className="App">
-          {/* <Breadcrumbs /> */}
+      <Provider store={store}>
+        <Router>
+          <div className="App">
+            {/* <Breadcrumbs /> */}
 
-          <LoginContext.Provider
-            value={{
-              userName: this.state.userName
-            }}
-          >
-            <nav>
-              <Link to="/">Main</Link>
-              <Link to="/search">Search</Link>
-              <Link to="/movies">Movies</Link>
-            </nav>
+            <LoginContext.Provider
+              value={{
+                userName: this.state.userName
+              }}
+            >
+              <nav>
+                <Link to="/">Main</Link>
+                <Link to="/search">Search</Link>
+                <Link to="/movies">Movies</Link>
+              </nav>
 
-            {headerComponent}
+              {headerComponent}
 
-            {console.log('text', this.state.apiData)}
-          </LoginContext.Provider>
+              {console.log('text', this.state.apiData)}
+            </LoginContext.Provider>
 
-          <Switch>
-            <Route
-              exact
-              path="/"
-              render={props => (
-                <LoginContext.Provider
-                  value={{
-                    userName: this.state.userName,
-                    handleNameChange: (
-                      e: React.ChangeEvent<HTMLInputElement>
-                    ) => {
-                      this.setState({ userName: e.target.value });
-                    }
-                  }}
-                >
-                  <Login {...props} />
-                </LoginContext.Provider>
-              )}
-            />
-            <Route
-              exact
-              path="/movies"
-              render={props => <Movies {...props} movies={preload.shows} />}
-            />
-            <Route exact path="/search" component={Search} />
-            <Route
-              exact
-              path="/details/:id"
-              render={props => (
-                <Details
-                  movie={preload.shows.find(movie => {
-                    return props.match.params.id === movie.imdbID;
-                  })}
-                />
-              )}
-            />
-            <Route component={FoF} />
-          </Switch>
-        </div>
-      </Router>
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={props => (
+                  <LoginContext.Provider
+                    value={{
+                      userName: this.state.userName,
+                      handleNameChange: (
+                        e: React.ChangeEvent<HTMLInputElement>
+                      ) => {
+                        this.setState({ userName: e.target.value });
+                      }
+                    }}
+                  >
+                    <Login {...props} />
+                  </LoginContext.Provider>
+                )}
+              />
+              <Route
+                exact
+                path="/movies"
+                render={props => <Movies {...props} movies={preload.shows} />}
+              />
+              <Route exact path="/search" component={Search} />
+              <Route
+                exact
+                path="/details/:id"
+                render={props => (
+                  <Details
+                    movie={preload.shows.find(movie => {
+                      return props.match.params.id === movie.imdbID;
+                    })}
+                  />
+                )}
+              />
+              <Route component={FoF} />
+            </Switch>
+          </div>
+        </Router>
+      </Provider>
     );
   }
 }

@@ -1,5 +1,5 @@
-import { SET_SEARCH_TERM } from './actions';
+import { SET_USERNAME } from './actions';
 
-export function setSearchTerm(searchTerm) {
-  return { type: SET_SEARCH_TERM, payload: searchTerm };
+export function setUserName(userName) {
+  return { type: SET_USERNAME, payload: userName };
 }
